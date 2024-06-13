@@ -3,17 +3,20 @@
     "name": "WaitMate",
     "version": "1.0",
     "icons": {
-        "64": "icon64.png"
+        "64": "res/icon64.png"
     },
 
     "background": {
-        "service_worker": "service-worker.js",
+        "service_worker": "script/service-worker.js",
         "type": "module"
     },
 
-    "action": {},
+    "action": {
+        "default_popup": "index.html"
+    },
     "permissions": [
-        "scripting"
+        "scripting",
+        "windows"
     ],
     "host_permissions": [
         "http://*/*",
