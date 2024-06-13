@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>WaitMate</title>
+    <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+
+    <div id="home">
+        <h1>Track Time!</h1>
+        <span>Welcome to WaitMate. You currently wasted </span>
+        <h2><span id="hours">-</span> Hours <span id="minutes">-</span> Minutes <span id="seconds">-</span> Seconds</h3>
+        <span>waiting for requests...</span>
+    </div>
+
+    <div id="settings" style="display: none;">
+        <span>Specify Domains</span>
+        <input type="text" id="domains" value="localhost, 127.0.0.1">
+        <br>
+        <br>
+        <button id="reset">Reset Time</button>
+    </div>
+
+    <br/>
+    <button id="button">Settings</button>
+</body>
+<script src="script/index.js"></script>
+</html>
