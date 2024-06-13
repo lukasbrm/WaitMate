@@ -10,11 +10,10 @@ let seconds = document.getElementById("seconds");
 // Display Wasted Time
 chrome.storage.local.get({totalLoadTime: 0}, (result) =>
     {
-        console.log(result.totalLoadTime);
-
-        const timeSeconds = (result.totalLoadTime / 1000).toFixed(0);
-        const timeMinutes = (timeSeconds / 60).toFixed(0);
-        const timeHours = (timeMinutes / 60).toFixed(0);
+        const totalTimeSeconds = (result.totalLoadTime / 1000);
+        const timeSeconds = Math.floor(totalTimeSeconds % 60);
+        const timeMinutes = Math.floor((totalTimeSeconds / 60) % 60);
+        const timeHours = Math.floor(totalTimeSeconds / 3600);
 
         seconds.innerText = timeSeconds;
         minutes.innerText = timeMinutes;
