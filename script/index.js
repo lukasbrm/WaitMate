@@ -2,6 +2,7 @@
 let homeDiv = document.getElementById("home");
 let settingsDiv = document.getElementById("settings");
 let button = document.getElementById("button");
+let reset = document.getElementById("reset");
 let hours = document.getElementById("hours");
 let minutes = document.getElementById("minutes");
 let seconds = document.getElementById("seconds");
@@ -23,7 +24,7 @@ chrome.storage.local.get({totalLoadTime: 0}, (result) =>
 
 
 // Switch view from Settings to Home and back on Button click
-document.getElementById("button").addEventListener("click", function()
+button.addEventListener("click", () =>
 {
     if(homeDiv.style.display == "none")
     {
@@ -37,6 +38,14 @@ document.getElementById("button").addEventListener("click", function()
         button.innerText = "Home";
     }
 });
+
+// Reset Counter Button (Settings)
+reset.addEventListener("click", () =>
+    {
+        chrome.storage.local.set({totalLoadTime: 0}, () => {});
+        reset.innerHTML = '<p style="color: red;">Time was reset!"</p>';
+    }
+);
 
 // Event Listener for Chrome messages
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) =>
