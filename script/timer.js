@@ -1,25 +1,24 @@
-// Start of Loading
-window.addEventListener("beforeunload", () =>
-    {
-        chrome.storage.local.set({startTime: new Date().getTime()}, () => {});
-    }
-);
-
-// End of Loading
+// Loading Timer
 window.addEventListener('load', () =>
     {
-        chrome.storage.local.set({endTime: new Date().getTime()}, () => {});
-
-        chrome.storage.local.get({startTime: 0, endTime: 0}, (result) =>
+        setTimeout(() =>
             {
-                const loadTime = result.endTime - result.startTime;
-                chrome.storage.local.get({totalLoadTime: 0}, (result) =>
-                    {
-                        const newTotalLoadTime = result.totalLoadTime + loadTime;
-                        chrome.storage.local.set({totalLoadTime: newTotalLoadTime}, () => {});
-                    }
-                );
-            }
-        );
+                const [navigation] = performance.getEntriesByType('navigation');
+                if(navigation)
+                {
+                    const loadTime = navigation.loadEventEnd - navigation.startTime;
+                    console.log(loadTime);
+                    chrome.storage.local.get({totalLoadTime: 0}, (result) =>
+                        {
+                            const newTotalLoadTime = result.totalLoadTime + loadTime;
+                            chrome.storage.local.set({totalLoadTime: newTotalLoadTime}, () => {});
+                        }
+                    );
+                }else
+                {
+                    console.log("Navigation API not reachable");
+                }
+
+            }, 100);    
     }
 );
