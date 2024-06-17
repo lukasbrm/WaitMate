@@ -62,7 +62,7 @@ domains.addEventListener("input", () =>
 // Event Listener for info button
 info.addEventListener("click", () =>
     {
-        alert("Write keywords into this field. \n Hostname contains one or more keywords -> time is added to counter. \n Hostname contains no keyword in the list -> loading time is ignored. \n If the field is empty, no filtering will take place.");
+        alert("Write keywords into this field. \n Hostname contains one or more keywords -> time is added to counter. \n Hostname contains no keyword in the list -> loading time is ignored. \n \n Please separate keywords by comma, i.e [github, localhost, google] \n If the field is empty, no filtering will take place. ");
     }
 );
 
@@ -70,7 +70,7 @@ info.addEventListener("click", () =>
 reset.addEventListener("click", () =>
     {
         chrome.storage.local.set({totalLoadTime: 0}, () => {});
-        reset.innerHTML = '<p style="color: red;">Time was reset!</p>';
+        reset.innerHTML = '<p style="color: red; background-color: white;">Time was reset!</p>';
     }
 );
 

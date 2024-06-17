@@ -1,6 +1,84 @@
+/* Colors */
+:root {
+    --primary-color: #FF7F3E;
+    --secondary-color: #604CC3;
+    --background-color: #80C4E9;
+    --accent-color: #FFF6E9;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: Arial, sans-serif;
+    color: var(--primary-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1, h2, span {
+    margin: 0.5em 0;
+    text-align: center;
+}
+
+#reset {
+    background-color: red;
+}
+
+#home, #settings {
+    background-color: var(--accent-color);
+    border-radius: 15px;
+    padding: 1em 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    text-align: center;
+}
+
+input[type="text"], button {
+    border-radius: 5px;
+    padding: 0.5em;
+    margin: 0.5em 0;
+}
+
+input[type="text"] {
+    border: 1px solid var(--primary-color);
+    width: calc(100% - 1em);
+    color: var(--primary-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#button {
+    background-color: var(--secondary-color);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 0.5em 1em;
+}
 body
 {
     width: 400px;
     height: 200px;
-    background-color: #4B4453;
 }
