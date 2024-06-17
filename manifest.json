@@ -25,7 +25,8 @@
         "windows",
         "activeTab",
         "webNavigation",
-        "storage"
+        "storage",
+        "tabs"
     ],
     "host_permissions": [
         "http://*/*",
